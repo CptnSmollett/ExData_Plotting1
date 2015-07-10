@@ -11,6 +11,7 @@ data = read.csv2(filename,
                  as.is = TRUE)
 
 # 2. Making a plot and saving it as a PNG file
+par(mfrow = c(1, 1))
 hist(as.numeric(data$Global_active_power), main = "Global Active Power", xlab = "Global Active Power (kilowatts)", col = "red")
 dev.copy(device = png, filename = "plot1.png")
 dev.off()

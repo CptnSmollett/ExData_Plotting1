@@ -15,11 +15,6 @@ data = read.csv2(filename,
 # 2. Preparing data to plot
 data$DateTime = strptime(paste(data$Date, data$Time, sep = " "),
                          "%d/%m/%Y %H:%M:%S")
-data$Global_reactive_power = as.numeric(data$Global_reactive_power)
-data$Voltage = as.numeric(data$Voltage)
-data$Sub_metering_1 = as.numeric(data$Sub_metering_1)
-data$Sub_metering_2 = as.numeric(data$Sub_metering_2)
-data$Sub_metering_3 = as.numeric(data$Sub_metering_3)
 
 # 3. Making plots and saving them as a PNG file
 par(mfrow = c(2, 2))
@@ -48,10 +43,10 @@ with(data, {
        y.intersp = 1,
        bty = "n")
 })
-
-dev.copy(device = png, filename = "plot3.png")
-dev.off()
 # Global reactive power by weekdays
 with(data, plot(DateTime, Global_reactive_power,
                 xlab = "datetime",
                 type = "l"))
+
+dev.copy(device = png, filename = "plot4.png")
+dev.off()

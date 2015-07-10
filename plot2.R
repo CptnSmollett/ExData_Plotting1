@@ -15,7 +15,8 @@ data$DateTime = strptime(paste(data$Date, data$Time, sep = " "),
                          "%d/%m/%Y %H:%M:%S")
 
 # 3. Making a plot and saving it as a PNG file
-with(data, plot(DateTime, Global_active_power,
+par(mfrow = c(1, 1))
+with(data, plot(DateTime, as.numeric(Global_active_power),
                   xlab = "",
                   ylab = "Global Active Power (kilowatts)",
                   type = "l"))
